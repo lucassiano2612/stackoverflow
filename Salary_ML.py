@@ -38,7 +38,7 @@ def clean_data(df):
     # Dummy the categorical variables
     cat_vars = df.select_dtypes(include=['object']).copy().columns
     for var in  cat_vars:
-        # for each cat add dummy var, drop original column
+        # for each categorical variables add dummy var, drop original column
         df = pd.concat([df.drop(var, axis=1), pd.get_dummies(df[var], prefix=var, prefix_sep='_', drop_first=True)], axis=1)
 
     X = df
